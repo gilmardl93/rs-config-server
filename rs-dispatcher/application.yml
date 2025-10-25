@@ -3,13 +3,11 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: ${DB_USERNAME:sa}
-    password: ${DB_PASSWORD:password}
+    url: jdbc:mysql://localhost:3306/samierp_mepso?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     show-sql: true
-  h2:
-    console:
-      enabled: true
+  # H2 console not used when using MySQL
