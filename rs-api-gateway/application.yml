@@ -31,7 +31,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://rs-auth:8081/.well-known/jwks.json
+          # JWKS URL used by Spring Security. Override with JWK_SET_URI env var in k8s or CI/CD.
+          jwk-set-uri: ${JWK_SET_URI:http://localhost:8081/.well-known/jwks.json}
 eureka:
   client:
     service-url:
