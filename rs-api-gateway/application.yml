@@ -17,10 +17,21 @@ spring:
             - Path=/api/dispatcher/**
           filters:
             - StripPrefix=2
+        - id: dispatcher-v2-service
+          uri: lb://rs-dispatcher-v2
+          predicates:
+            - Path=/rs-dispatcher-v2/**
+          filters:
+            - StripPrefix=2
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://rs-auth:8081/.well-known/jwks.json
 eureka:
   client:
     service-url:
