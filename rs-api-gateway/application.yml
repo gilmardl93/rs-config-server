@@ -22,7 +22,8 @@ spring:
           predicates:
             - Path=/rs-dispatcher-v2/**
           filters:
-            - StripPrefix=2
+            # remove only the first path segment so /rs-dispatcher-v2/graphql -> /graphql
+            - StripPrefix=1
       discovery:
         locator:
           enabled: true
