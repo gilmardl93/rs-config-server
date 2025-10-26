@@ -8,15 +8,13 @@ spring:
     password: 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     show-sql: true
-  h2:
-    console:
-      enabled: true
 
 jwt:
-  secret: ${JWT_SECRET:mySecretKey}
+  secret: mySecretKey
   expiration: 3600000
+
 eureka:
   client:
     service-url:
